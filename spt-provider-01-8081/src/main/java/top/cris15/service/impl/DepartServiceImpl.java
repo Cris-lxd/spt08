@@ -1,14 +1,15 @@
 package top.cris15.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import top.cris15.bean.Depart;
 import top.cris15.repository.DepartRepository;
 import top.cris15.service.DepartService;
 import top.cris15.utils.R;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * date： 2023/8/22
@@ -18,6 +19,7 @@ import java.util.List;
  **/
 
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class DepartServiceImpl implements DepartService {
 
     @Autowired
@@ -45,17 +47,20 @@ public class DepartServiceImpl implements DepartService {
 
     @Override
     public R getDepartById(int id) {
+        Depart depart;
         if(departRepository.existsById(id)){
-            departRepository.findById(id);
-            return R.ok();
+            Optional<Depart> depart1 = departRepository.findById(id);
+            depart = depart1.get();
+        }else{
+            depart = new Depart();
+            depart.setName("no this depart");
         }
-        Depart depart = new Depart();
-        depart.setName("no this depart");
         return R.ok(depart);
     }
 
     @Override
     public R listAllDeparts() {
-        return R.ok();
+        List<Depart> all = departRepository.findAll();
+        return R.ok(all);
     }
 }
