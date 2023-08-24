@@ -9,12 +9,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>top.cris15</groupId>
-    <artifactId>spt-provider-01-8081</artifactId>
+    <artifactId>02-spt-provider-8081</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spt-provider-01-8081</name>
-    <description>spt-provider-01-8081</description>
+    <name>02-spt-provider-8081</name>
+    <description>02-spt-provider-8081</description>
     <properties>
         <java.version>20</java.version>
+        <spring-cloud.version>2022.0.0</spring-cloud.version>
+        <spring-cloud-alibaba.version>2022.0.0.0-RC2</spring-cloud-alibaba.version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
@@ -49,7 +51,36 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+<!--        nacos注册中心，没有版本号表示从springCloud alibaba继承-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+<!--            <version>2022.0.0.0-RC2</version>-->
+        </dependency>
+
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+<!--    springcloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+<!--    Springcloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
