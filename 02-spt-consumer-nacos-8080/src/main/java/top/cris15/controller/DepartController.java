@@ -41,7 +41,8 @@ public class DepartController {
     @GetMapping("/get/{id}")
     public R getHandle(@PathVariable int id){
         String url = SERVICE_PROVIDER + "/get/" + id;
-        return restTemplate.getForObject(url,R.class);
+        R r = restTemplate.getForObject(url,R.class);
+        return r;
     }
 
     @GetMapping("/list")

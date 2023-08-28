@@ -9,7 +9,8 @@ import org.springframework.web.client.RestTemplate;
 public class DepartConfig {
 
 
-    @LoadBalanced       // 负载均衡方式调用
+    //@LoadBalanced       // 负载均衡方式调用
+    @LoadBalanced
     @Bean
     public RestTemplate restTemplate(){
         return new RestTemplate();

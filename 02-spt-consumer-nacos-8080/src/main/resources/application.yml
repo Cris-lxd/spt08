@@ -6,6 +6,6 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848   # nacos??????
+        server-addr: localhost:8848   # nacos????
         username: nacos
         password: nacos
