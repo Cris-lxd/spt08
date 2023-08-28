@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>top.cris15</groupId>
-    <artifactId>02-spt-provider-8081</artifactId>
+    <artifactId>02-spt-provider-nacos-8081</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>02-spt-provider-8081</name>
-    <description>02-spt-provider-8081</description>
+    <name>02-spt-provider-nacos-8081</name>
+    <description>02-spt-provider-nacos-8081</description>
     <properties>
         <java.version>20</java.version>
         <spring-cloud.version>2022.0.0</spring-cloud.version>
