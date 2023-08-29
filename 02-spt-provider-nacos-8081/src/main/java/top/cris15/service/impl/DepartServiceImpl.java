@@ -1,6 +1,7 @@
 package top.cris15.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import top.cris15.bean.Depart;
@@ -24,6 +25,10 @@ public class DepartServiceImpl implements DepartService {
 
     @Autowired
     private DepartRepository departRepository;
+
+    @Value("${server.port}")
+    private int port;
+
     @Override
     public R saveDepart(Depart depart) {
         Depart save = departRepository.save(depart);
@@ -53,7 +58,7 @@ public class DepartServiceImpl implements DepartService {
             depart = depart1.get();
         }else{
             depart = new Depart();
-            depart.setName("no this depart");
+            depart.setName("no this depart" + port);
         }
         return R.ok(depart);
     }
