@@ -2,10 +2,12 @@ spring:
   application:
     name: depart-consumer
 
-  # nacos??
+  # nacos配置
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848   # nacos????
+        server-addr: localhost:8848   # nacos访问地址，不加/nacos否则会报错
         username: nacos
         password: nacos
+        namespace: 56b2174b-9b2d-45b2-83ce-5deae3cc3b50
+        group: MY_GROUP

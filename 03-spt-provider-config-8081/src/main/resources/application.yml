@@ -1,0 +1,25 @@
+spring:
+
+  # 微服务名称
+  application:
+    name: depart-provider
+
+
+  profiles:
+    active: dev
+
+
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+        username: nacos     # username 和 password 必须配置
+        password: nacos
+#        shared-configs[0]:     # 共享配置,可用于加载多个配置文件.  配置加载顺序: 共享配置 -> 扩展配置 -> 当前服务配置
+#          data-id: share-config.yml
+#          refresh: true
+
+  config:
+    import:
+      - optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

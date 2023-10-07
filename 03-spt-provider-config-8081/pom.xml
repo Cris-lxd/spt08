@@ -9,31 +9,20 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>top.cris15</groupId>
-    <artifactId>spt-provider-01-8081</artifactId>
+    <artifactId>03-spt-provider-config-8081</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spt-provider-01-8081</name>
-    <description>spt-provider-01-8081</description>
+
     <properties>
         <java.version>20</java.version>
         <spring-cloud.version>2022.0.0</spring-cloud.version>
-        <spirng-cloud-alibaba.version>2022.0.0.0-RC2</spirng-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2022.0.0.0-RC2</spring-cloud-alibaba.version>
     </properties>
     <dependencies>
-
-<!--        nacos发现-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.2.18</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -58,17 +47,32 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+<!--        nacos注册中心，没有版本号表示从springCloud alibaba继承-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+<!--            <version>2022.0.0.0-RC2</version>-->
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+<!--    springcloud alibaba-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spirng-cloud-alibaba.version}</version>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+<!--    Springcloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>top.cris15</groupId>
-	<artifactId>spt-consumer-01-8080</artifactId>
+	<artifactId>01-spt-consumer-8080</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spt-consumer-01-8080</name>
 	<description>spt-consumer-01-8080</description>
