@@ -1,0 +1,11 @@
+server:
+  port: 9000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: my_route
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/provider/**

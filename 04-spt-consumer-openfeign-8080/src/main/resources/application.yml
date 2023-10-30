@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: depart-consumer
+
+  # nacos配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848   # nacos访问地址
+        username: nacos
+        password: nacos
+
+    openfeign:
+      client:
+        config:
+          default:    # 全局设置
+            # provider响应 consumer 的时间限制
+            read-timeout: 1
+            # consumer 连接上 provider 的时间限制
+            connect-timeout: 1
+          depart-provider:    # 局部设置
+            read-timeout: 1000
+            connect-timeout: 2000
+      compression:
+        request:    # 请求压缩
+          enabled: true
+          mime-types: ["text/xml", "application/xml", "application/json"]     # 对什么类型进行压缩
+        response:     # 响应压缩
+          enabled: true
+ß

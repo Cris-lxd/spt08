@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: depart-consumer
+
+  # nacos配置
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848   # nacos访问地址，不加/nacos否则会报错
+        file-extension: yml
+        username: nacos
+        password: nacos
+        namespace: 56b2174b-9b2d-45b2-83ce-5deae3cc3b50
+        group: MY_GROUP
+
+
+  config:
+    import:
+      - optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}
