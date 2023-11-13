@@ -24,6 +24,11 @@
 			<!--            <version>2022.0.0.0-RC2</version>-->
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+		</dependency>
+
 		<!--        nacos注册中心，没有版本号表示从springCloud alibaba继承-->
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
@@ -45,8 +50,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+			<version>3.1.4</version>
 		</dependency>
 	</dependencies>
 

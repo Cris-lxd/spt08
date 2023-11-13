@@ -1,11 +1,31 @@
 server:
   port: 9000
 
+
+
 spring:
   cloud:
     gateway:
       routes:
         - id: my_route
-          uri: http://localhost:8081/
-          predicates:
-            - Path=/provider/**
+          uri: http://localhost:8080
+          predicates:   # 断言
+            - Path=/**
+          filters:
+            - One=onefilter, 111
+            - Two=twofilter, 222
+            - Three=threefilter, 333
+
+
+#            - name: RequestRateLimiter      # 限流
+#              args:
+#                key-resolver: "#{@hostKeyResolver}"
+#                redis-rate-limiter.replenishRate: 10    # 令牌桶填充率   10/s
+#                redis-rate-limiter.burstCapacity: 20    #  突发容量
+#                redis-rate-limiter.requestedTokens: 1     # 令牌数量
+
+#            - name: CircuitBreaker    # 上述服务无法访问则服务降级
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/fb
+
